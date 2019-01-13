@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+<title>Atmiņu spēle</title>
+<style type="text/css">
+body {background-color:white;}
+.button {
+    background-color: #ff4259;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: arial;
+}
+div#atminuspele{
+	background:#CCC;
+	border:#999 1px solid;
+	width:800px;
+	height:540px;
+	padding:24px;
+	margin:0px auto;
+}
+div#atminuspele > div{
+	background: url(saraksts.png) no-repeat center;
+	border:#000 1px solid;
+	width:71px;
+	height:71px;
+	float:left;
+	margin:10px;
+	padding:20px;
+	font-size:64px auto;
+	cursor:pointer;
+	text-align: center;
+}
+</style>
+<script>
+var masivs = ['Šļirce','Šļirce','Pulsometrs','Pulsometrs','Žņaugs','Žņaugs','Adata','Adata','Kardiogrāfs','Kardiogrāfs',
+'Perfuzors','Perfuzors','Defiblirātors','Defiblirātors','Rentgens','Rentgens','CT','CT','MRI','MRI',
+'inhalators','Inhalators','Marle','Marle'];
+var vertibas = [];
+var pozicija = [];
+var apgriezt = 0;
+Array.prototype.memory_tile_shuffle = function(){
+    var i = this.length, j, temp;
+    while(--i > 0){
+        j = Math.floor(Math.random() * (i+1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
+}
+function jaunaspele(){
+	apgriezt = 0;
+	var output = '';
+    masivs.memory_tile_shuffle();
+	for(var i = 0; i < masivs.length; i++){
+		output += '<div id="tile_'+i+'" onclick="apgrieztKartinu(this,\''+masivs[i]+'\')"></div>';
+	}
+	document.getElementById('atminuspele').innerHTML = output;
+}
+function apgrieztKartinu(tile,val){
+	if(tile.innerHTML == "" && vertibas.length < 2){
+		tile.style.background = '#FFF';
+		tile.innerHTML = val;
+		if(vertibas.length == 0){
+			vertibas.push(val);
+			pozicija.push(tile.id);
+		} else if(vertibas.length == 1){
+			vertibas.push(val);
+			pozicija.push(tile.id);
+			if(vertibas[0] == vertibas[1]){
+				apgriezt += 2;
+				// Notira abus masivus
+				vertibas = [];
+            	pozicija = [];
+				// parbauda vai laukums ir notīrīts, veido jaunu laukumu
+				if(apgriezt == masivs.length){
+					alert("Spēlē beigusies... Sākt jaunu spēli");
+					document.getElementById('atminuspele').innerHTML = "";
+					jaunaspele();
+				}
+			} else {
+				function apgrieztotradi(){
+				    // Apgriež kartiņas atpakaļ
+				    var tile_1 = document.getElementById(pozicija[0]);
+				    var tile_2 = document.getElementById(pozicija[1]);
+				    tile_1.style.background = 'url(saraksts.png) no-repeat center';
+            	    tile_1.innerHTML = "";
+				    tile_2.style.background = 'url(saraksts.png) no-repeat center';
+            	    tile_2.innerHTML = "";
+				    // notīra abus masīvus
+				    vertibas = [];
+            	    pozicija = [];
+				}
+				setTimeout(apgrieztotradi, 700);
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>
+
+<a href="index.html"> <img src="Titulapa.jpg" width="100%"/> </a>
+
+<button class="button" onclick="zina()">Pieslēgties </button>
+<button class="button" onclick="window.location.href='Pamaciba.html'"  >Pamācība </button>
+<button class="button" onclick="window.location.href='galerija.html'"  >Galerija </button>
+<button class="button" onclick="window.location.href='parprojektu.html'"  >Par proejketu </button>
+<button class="button" onclick="window.location.href='rekordi.html'"  >Rekordi </button>
+<button class="button" onclick="window.location.href='terminukratuve.html'"  >Terminu krātuve </button>
+
+<div id="atminuspele"></div>
+<script>jaunaspele();</script>
+
+
+<!--<script type="text/javascript">
+function saskaitisana(x,y) {
+  var z = x+y;
+  return z;
+}
+document.write(saskaitisana(6,9));
+
+</script>-->
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
