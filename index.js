@@ -1,7 +1,7 @@
 
 const express = require('express')
 const app = express()
-const port = 80
+const port = 8081;
 
 var fs = require('fs') // this engine requires the fs module
 const buttons = fs.readFileSync('AtminuSpele/etbuttons.html').toString();
@@ -23,11 +23,12 @@ app.set('AtminuSpele', './AtminuSpele') // specify the views directory
 app.set('view engine', 'ntl') // register the template engine
 
 app.use('/static', express.static("AtminuSpele"));
-//
-// app.get('/', function (req, res) {
-//   res.render('index', { title: 'Hey', message: 'Hello there!' })
-// })
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+app.get('/', function (req, res) {
+  res.render('index', {});
+});
 
 app.get('/Pamaciba.ntl', function (req, res) {
   res.render('Pamaciba', {})

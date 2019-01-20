@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/margaritamatulenkortu/WEB-progarmming/issues"
   },
-  "homepage": "https://github.com/margaritamatulenkortu/WEB-progarmming#readme"
+  "homepage": "https://github.com/margaritamatulenkortu/WEB-progarmming#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
