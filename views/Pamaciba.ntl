@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+#header#
+
+<style>
+h3 {background-color:#b3adaa;color: #3088fc; font-family: arial; font-weight: bold; padding: 40px;
+  border-width:5px; border-style:dashed; border-color: #ff4259; margin: 40px; margin-right: 50%; margin-left: 5%; margin-bottom: 0px;}
+ul {list-style-image:url(static/saraksts.png);background-color:#b3adaa; color: #3088fc; font-family: arial; padding-left: 12%; padding-top: 2%;
+        border-width:5px; border-style:dashed; border-color: #ff4259; margin-right: 50%; margin-left: 5%}
+#noteikums {position: absolute; top:50%; right:40%; width: 100px; }
+ </style>
+</head>
+<body>
+#buttons#
+ <h3> Spēles noteikumi </h3>
+ <ul>
+<li>Pirmias noteikums </li>
+<li> Otrais noteikums </li>
+
+<div id = "noteikums"> <img  src="static/noteikumi.png" /> </div>
+</ul>
+
+#footer#
+</body>
+</html>

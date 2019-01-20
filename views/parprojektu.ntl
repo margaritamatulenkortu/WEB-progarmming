@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+#header#
+  <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Galerija</title>
+<style type="text/css">
+body {background-color:white;}
+
+h1 {
+  text-align: center; color: #ff4259;
+}
+
+h2 {
+  text-align: center; padding: 50px ; color: #ff4259;
+}
+
+h3 {
+  text-align: center;  padding: 50px; color: #ff4259;
+}
+p {text-align: center;   margin: auto;
+  width: 30%;
+  border: 3px solid #ff4259;
+  padding: 10px;}
+
+
+ </style>
+</head>
+<body>
+  #buttons#
+
+
+
+
+  <h1>Par projektu</h1>
+  <p> profesionālās tālākizglītības programmu īstenošana;
+  profesionālās pilnveides izglītības programmu īstenošana;
+  neformālās izglītības programmu īstenošana.
+  Nodarbinātības valsts aģentūra:
+<a href="terminukratuve.html"><img src="static/sirds.jpg" width="120" height="140" padding="10" /> </a>
+</p>
+
+  <h2>Ideja <a href="terminukratuve.ntl"><img src="static/Ideja.jpg" width="30" height="40" margin="100" /> </a> </h2>
+  <p> Pašvaldības (piesaista pieaugušo izglītības koordinatoru):
+
+  mācību piedāvājuma un mācību vajadzību apkopošana;
+  informē par karjeras konsultanta pakalpojumiem;
+  mērķa grupas informēšana un piesaiste projektā.
+  Izglītības iestādes: </p>
+  <h3>Īstenošana</h3>
+
+  <p>Projekta sadarbības partneri un to uzdevumi
+
+Pašvaldības (piesaista pieaugušo izglītības koordinatoru):
+
+mācību piedāvājuma un mācību vajadzību apkopošana;
+informē par karjeras konsultanta pakalpojumiem;
+mērķa grupas informēšana un piesaiste projektā.
+Izglītības iestādes:
+
+profesionālās tālākizglītības programmu īstenošana;
+profesionālās pilnveides izglītības programmu īstenošana;
+neformālās izglītības programmu īstenošana.
+Nodarbinātības valsts aģentūra:
+
+atbalsts karjeras konsultanta pakalpojumiem;
+mērķa grupas informēšana un piesaiste dalībai projektā.t.</p>
+
+
+#footer#
+
+</body>
+</html>
