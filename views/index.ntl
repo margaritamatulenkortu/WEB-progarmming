@@ -32,6 +32,9 @@ div#atminuspele > div{
 }
 </style>
 <script>
+var vards = prompt("Tavs vards");
+var laiks = Date.now();
+alert("Tevi sauc " + vards);
 var masivs = ['Šļirce','Šļirce','Pulsometrs','Pulsometrs','Žņaugs','Žņaugs','Adata','Adata','Kardiogrāfs','Kardiogrāfs',
 'Perfuzors','Perfuzors','Defiblirātors','Defiblirātors','Rentgens','Rentgens','CT','CT','MRI','MRI',
 'Inhalators','Inhalators','Marle','Marle'];
@@ -54,6 +57,7 @@ function jaunaspele(){
 	for(var i = 0; i < masivs.length; i++){
 		output += '<div id="tile_'+i+'" onclick="apgrieztKartinu(this,\''+masivs[i]+'\')"></div>';
 	}
+	laiks = Date.now();
 	document.getElementById('atminuspele').innerHTML = output;
 }
 function apgrieztKartinu(tile,val){
@@ -73,6 +77,7 @@ function apgrieztKartinu(tile,val){
             	pozicija = [];
 				// parbauda vai laukums ir notīrīts, veido jaunu laukumu
 				if(apgriezt == masivs.length){
+				    nosutitRezultatus();
 					alert("Spēlē beigusies... Sākt jaunu spēli");
 					document.getElementById('atminuspele').innerHTML = "";
 					jaunaspele();
@@ -94,6 +99,14 @@ function apgrieztKartinu(tile,val){
 			}
 		}
 	}
+}
+
+function nosutitRezultatus() {
+    var ilgums = Date.now() - laiks;
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "/sanemtRekordu?laiks=" + ilgums + "&vards=" + vards, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
 }
 
 
